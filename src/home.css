@@ -1,0 +1,62 @@
+.HomeApp {
+  text-align: center;
+  background-image: url("background.jpg");
+  background-size: 100%;
+  padding-bottom: 100px;
+  background-repeat: no-repeat;
+}
+
+.mainName {
+  font-size: 30px;
+  text-align: left;
+  padding-left: 30px;
+  padding-top: 10px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.borderName {
+  border-bottom: 1px solid white;
+  background-color: white;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.mainBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  border-radius: 3px;
+  width: 50%;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  background-color: white;
+  margin-left: 27%;
+  box-shadow: 3px 4px 8px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mainBox-0 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 19%;
+}
+
+.mainBox-1 {
+  display: flex;
+  padding-top: 30px;
+  justify-content: space-evenly;
+}
+
+.login,
+.signup {
+  border: 1px solid rgba(0, 200, 89, 0.81);
+  border-radius: 3px;
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  background-color: rgba(0, 200, 89, 0.81);
+  font-weight: bold;
+}
+
+.login:hover,
+.signup:hover {
+  background-color: rgba(0, 200, 89, 0.9);
+}

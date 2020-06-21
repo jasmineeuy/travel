@@ -1,0 +1,52 @@
+.mainBx-1 {
+  background-color: white;
+  height: 700px;
+}
+.mainBx-0 {
+  background-image: url("background.jpg");
+  height: 230px;
+}
+.mainBx {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  margin-top: 30px;
+  box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.nameBx0 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: white;
+  /* background-image: url("background.jpg"); 
+  background-repeat: no-repeat;*/
+}
+
+.add-trip-btn {
+  background-color: rgba(0, 200, 89, 0.81);
+  border: 1px solid rgba(0, 200, 89, 0.81);
+  color: white;
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-left: 70%;
+  margin-top: 10px;
+}
+
+.add-trip-btn:hover {
+  background-color: rgba(0, 200, 89, 0.9);
+}
+
+.cardBx {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+}

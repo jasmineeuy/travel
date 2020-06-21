@@ -1,0 +1,62 @@
+body {
+  background-color: rgba(0, 200, 83, 0.29);
+}
+
+.nForm {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.wform {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.mCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.row1 {
+  padding-top: 10px;
+  display: flex;
+  justify-content: left;
+}
+
+.account {
+  background-color: rgba(0, 200, 83, 0.79);
+  color: aliceblue;
+  border: 1px solid rgba(0, 200, 83, 0.79);
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 180px;
+}
+
+.memName,
+.UserName,
+.UserPass,
+.userEmail {
+  font-weight: bold;
+  text-align: left;
+}
+
+.typename {
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 170px;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
