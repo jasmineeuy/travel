@@ -1,19 +1,15 @@
 import React from "react";
-import "./form.css";
-import LogOn from "./LogOn";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import "../css/SignUp.css";
+import { Redirect, Link } from "react-router-dom";
 
 class Formfield extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      registered: false,
-      msg: null,
-    };
-  }
+  state = {
+    name: "",
+    email: "",
+    password: "",
+    registered: window.localStorage.getItem("id") !== null,
+    msg: null,
+  };
 
   handleEvent = (e) => {
     e.preventDefault();
@@ -47,70 +43,64 @@ class Formfield extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(name, value);
   };
 
   render() {
     const { name, email, password, msg, registered } = this.state;
+
     if (registered) {
       return <Redirect to={`/profile/${window.localStorage.getItem("id")}`} />;
     }
+
     return (
       <div className="nForm">
         <div className="mCard">
-          <div className="nameCard">
+          <div>
             <p className="wform"> Sign Up</p>
           </div>
           {msg && <div>{msg}</div>}
-          <div className="newForm">
+          <div>
             <form onSubmit={this.handleEvent}>
               <div className="row1">
-                <div>
-                  <p className="memName">Name</p>
-                </div>
-                <div>
-                  <input
-                    className="typename"
-                    name="name"
-                    type="text"
-                    value={name}
-                    onChange={this.handleEvenChange}
-                  ></input>
-                </div>
+                <input
+                  className="typename"
+                  name="name"
+                  type="text"
+                  value={name}
+                  placeholder="Name"
+                  onChange={this.handleEvenChange}
+                ></input>
               </div>
               <div className="row1">
-                <div>
-                  <p className="userEmail">Email</p>
-                </div>
-                <div>
-                  <input
-                    className="typename"
-                    name="email"
-                    value={email}
-                    onChange={this.handleEvenChange}
-                  ></input>
-                </div>
+                <input
+                  className="typename"
+                  name="email"
+                  type="email"
+                  value={email}
+                  placeholder="Email"
+                  onChange={this.handleEvenChange}
+                ></input>
               </div>
-
               <div className="row1">
-                <div>
-                  <p className="UserPass">Password </p>
-                </div>
-                <div>
-                  <input
-                    class="typename"
-                    name="password"
-                    value={password}
-                    onChange={this.handleEvenChange}
-                  ></input>
-                </div>
+                <input
+                  className="typename"
+                  name="password"
+                  type="password"
+                  value={password}
+                  placeholder="Password"
+                  onChange={this.handleEvenChange}
+                ></input>
               </div>
-
               <div>
                 <button className="account">Submit</button>
               </div>
             </form>
           </div>
+        </div>
+        <div className="gb-link">
+          <button onClick={() => this.props.history.goBack()}>
+            Click here to go back
+          </button>
         </div>
       </div>
     );

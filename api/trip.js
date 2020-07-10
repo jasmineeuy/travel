@@ -20,15 +20,14 @@ router.get("/:id/alltrips", async (req, res) => {
     res.status(409).json({
       message: "Error could not retrieve trips",
     });
-    console.log(userId);
   }
 });
 
 router.post("/:id/newtrip/", async (req, res) => {
-  const { name, location, from, to, group, cost } = req.body;
+  const { name, location, from, to, group, cost, imgUrl } = req.body;
   const userId = req.params.id;
 
-  if ((!name || !location || !from || !to, !group || !cost)) {
+  if ((!name || !location || !from || !to, !group || !cost || !imgUrl)) {
     return res.status(409).json({
       message: "All fields must be filled in",
     });
@@ -37,7 +36,7 @@ router.post("/:id/newtrip/", async (req, res) => {
   try {
     const [trip, created] = await Trip.findOrCreate({
       where: { userId, name },
-      defaults: { location, from, to, group, cost },
+      defaults: { location, from, to, group, cost, imgUrl },
     });
 
     if (!created) {
@@ -52,26 +51,17 @@ router.post("/:id/newtrip/", async (req, res) => {
     res.status(500).json({
       message: "Failed to create trip",
     });
-    console.log(userId);
-    console.log(name);
-    console.log(group);
-    console.log(cost);
-    //console.log(to);
-    //console.log(from);
-    console.log(location);
   }
 });
-router.delete("/:id/:name", async (req, res) => {
-  const userId = req.params.id;
-  const name = req.params.name;
+
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
 
   try {
     const erase = await Trip.destroy({
-      where: {
-        userId,
-        name,
-      },
+      where: { id },
     });
+
     res.json({
       erase,
     });

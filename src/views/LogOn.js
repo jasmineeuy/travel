@@ -1,23 +1,20 @@
 import React from "react";
-import "./logon.css";
+import "../css/Logon.css";
 import { Redirect } from "react-router-dom";
 
 class LogOn extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      authenticated: false,
-      msg: null,
-    };
-  }
+  state = {
+    email: "",
+    password: "",
+    authenticated: window.localStorage.getItem("id") !== null,
+    msg: null,
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
     const state = this.state;
-    console.log(state);
+
     fetch("/api/auth/login", {
       method: "post",
       body: JSON.stringify(state),
@@ -32,7 +29,6 @@ class LogOn extends React.Component {
           return;
         }
 
-        console.log("i:" + data);
         window.localStorage.setItem("id", data.id);
         this.setState({
           authenticated: true,
@@ -41,7 +37,6 @@ class LogOn extends React.Component {
       .catch((err) => {
         console.log("error response:" + err.response.message);
       });
-    console.log("above:" + this.state);
   };
 
   handleChange = (e) => {
@@ -49,17 +44,15 @@ class LogOn extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(name, value);
   };
 
   render() {
     const { email, password, msg, authenticated } = this.state;
+
     if (authenticated) {
-      console.log("authenticated");
       return <Redirect to={`/profile/${window.localStorage.getItem("id")}`} />;
     }
 
-    console.log(msg);
     return (
       <div className="Login-Form">
         <p className="name-form ">Login</p>
@@ -71,6 +64,7 @@ class LogOn extends React.Component {
               name="email"
               placeholder="Email"
               value={email}
+              type="email"
               onChange={this.handleChange}
             ></input>
           </div>
@@ -80,14 +74,19 @@ class LogOn extends React.Component {
               name="password"
               placeholder="Password"
               value={password}
+              type="password"
               onChange={this.handleChange}
             ></input>
           </div>
-
           <div>
-            <button className="butn">submit</button>
+            <button className="submit-btn">submit</button>
           </div>
         </form>
+        <div className="gb-link">
+          <button onClick={() => this.props.history.goBack()}>
+            Click here to go back
+          </button>
+        </div>
       </div>
     );
   }

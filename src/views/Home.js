@@ -1,12 +1,20 @@
 import React from "react";
-import Banner from "./banner";
-import "./home.css";
-
-import { Switch, Route, Link } from "react-router-dom";
+import Banner from "../components/Banner";
+import "../css/Home.css";
+import { Link, Redirect } from "react-router-dom";
 
 class Home extends React.Component {
+  state = {
+    authenticated: window.localStorage.getItem("id"),
+  };
+
   render() {
-    console.log(this.props);
+    const authenticated = this.state.authenticated;
+
+    if (authenticated) {
+      return <Redirect to={`/profile/${authenticated}`} />;
+    }
+
     return (
       <div className="HomeApp">
         <Banner />

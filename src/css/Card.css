@@ -6,27 +6,45 @@
   box-shadow: 1px 1px 10px 0.1px rgba(0, 0, 0, 0.3);
   margin-top: 20px;
 }
+
 .r-card {
   border-left: black 1px solid;
   padding-left: 0px;
   font-weight: bold;
   padding-bottom: 10px;
 }
+
 .tripName {
   text-align: center;
 }
+
 .r-row {
   margin-left: 10px;
 }
+
 .r-row,
 .Info,
 .r-card {
   width: 100%;
 }
-.cardImage {
-  max-width: 100%;
-  max-height: 100%;
+
+.Info {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
+
+.right-row p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cardImage {
+  max-width: 200px;
+  max-height: 132px;
+  height: 132px;
+  width: 200;
+}
+
 .remove-card-btn {
   border: transparent;
   border-radius: 1px;
@@ -34,21 +52,28 @@
   font-weight: bold;
   margin-right: 3px;
 }
+
 .remove-card-btn:hover {
   background-color: rgba(201, 201, 201, 0.3);
 }
-/*-------------------*/
+
+.mainCard-wrapper {
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+}
+
 .mainCard {
   background-color: white;
   border-radius: 3px;
+  margin: auto;
   display: flex;
   flex-direction: row;
-  width: 400px;
+  width: fit-content;
   border: 1px solid white;
   box-shadow: 3px 4px 8px 3px rgba(0, 0, 0, 0.3);
 }
-.mainCard:hover {
-}
+
 .right-card {
   display: flex;
 }
@@ -56,6 +81,7 @@
 .right-row {
   border-left: 1px solid;
   padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -66,8 +92,6 @@
 
 .cardBtn {
   margin-bottom: 10px;
-  display: flex;
-  margin-left: 210px;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -75,9 +99,11 @@
   background-color: rgba(0, 200, 89, 0.81);
   border: 1px solid rgba(0, 200, 89, 0.81);
 }
+
 .cardBtn:hover {
   background-color: rgba(0, 200, 89, 0.9);
 }
+
 .tripInfo {
   margin-left: 10px;
   border: 1px solid;
@@ -87,5 +113,12 @@
   padding-bottom: 3px;
 }
 
-.left-card {
+.img-input {
+  height: 282px;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
